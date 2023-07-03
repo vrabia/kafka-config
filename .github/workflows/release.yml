@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Copy envrc file
+        run: cp ${{ github.workspace }}/../../../.envrc ${{ github.workspace }}/.envrc
       - name: Restart docker service
         run: docker compose up --build -d
 
